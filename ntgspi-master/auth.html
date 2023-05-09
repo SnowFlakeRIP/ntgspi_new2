@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Авторизация на сайте</title>
+</head>
+<body>
+<!--=============== HEADER ===============-->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="index.html" class="nav__logo"><img src="img/logo.png" width="296" height="38" alt="logo"></a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="courses.html" class="nav__link active-link">КУРСЫ</a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#contacts" class="nav__link">КОНТАКТЫ</a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="FAQ.html" class="nav__link">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section class="authorization">
+    <form class="auth" action="">
+        <label>Логин или электронная почта</label><br>
+        <input type="text" class="data" id="login" required><br>
+        <label>Пароль</label><br>
+        <input type="password" class="data" id="password" required><br>
+        <div class="auth__more">
+            <div class="checkbox__content">
+                <input type="checkbox" id="logCheck">
+                <label for="logCheck">Запомнить меня</label>
+            </div>
+            <a class="forget" href="#" id="resetPas">Забыли логин или пароль?</a>
+        </div>
+        <input class="submit" type="button" value="ВХОД" id="LogOn"><br>
+        <span>Нет учётной записи? <a class="offer" href="reg.html">Зарегистрируйся</a></span>
+    </form>
+</section>
+<!--=============== FOOTER ===============-->
+<footer id="contacts">
+    <div class="footer container">
+        <a href="index.html" class="footer__logo"><img src="img/logo.png" width="296" height="38" alt="logo"></a>
+        <a href="#" class="footer__img"><img src="img/map.png" width="267" height="231" alt="map"></a>
+        <div class="footer__contacts">
+            <div class="footer__item">
+                <h3 class="footer__title">Контакты</h3>
+                <p class="footer__content">622031, Свердловская обл., Нижний Тагил,<br>ул. Красногвардейская, 57</p>
+            </div>
+            <div class="footer__item">
+                <h3 class="footer__title">Режим работы</h3>
+                <p class="footer__content">с 8.30 – 17.00,<br>суббота и воскресение – выходные дни</p>
+            </div>
+            <div class="footer__item">
+                <h3 class="footer__title">Телефоны</h3>
+                <p class="footer__content">+7 (3435) 25-57-44<br>+79068049966</p>
+            </div>
+        </div>
+        <div class="footer__contacts">
+            <div class="footer__item">
+                <h3 class="footer__title">Email</h3>
+                <p class="footer__content">ntspi_cdpo@mail.ru</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/auth.js"></script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+  	<link rel="stylesheet" href="css/style.css">
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Оформление заявки на курс</title>
+  </head>
+  <body>
+    <section class="user__request">
+      <div class="container__request">
+        <header>Оформление заявки</header>
+        <form action="#">
+          <div class="form__request">
+            <div class="request__details">
+              <span class="request__title">Заполните поля ниже</span>
+              <div class="fields">
+                <div class="input-field">
+                  <label>Имя</label>
+                  <input type="text" id = 'name' placeholder="Имя..." required>
+                </div>
+                <div class="input-field">
+                  <label>Фамилия</label>
+                  <input type="text" id = 'secondname' placeholder="Фамилия..." required>
+                </div>
+                <div class="input-field">
+                  <label>Отчество</label>
+                  <input type="text" id = 'middlename' placeholder="Отчество..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Выбранный курс</label>
+                  <input type="text" id = 'coursename' placeholder="Выбранный курс..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Номер телефона</label>
+                  <input type="text" id = 'phoneNumber' placeholder="Номер телефона..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>E-mail</label>
+                  <input type="text" id = 'email' placeholder="E-mail..." required>
+                </div>
+              </div>
+            </div>
+            <button type="submit">
+              <span class="btnRequest" id="createRequest">Создать заявку</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  <!--=============== JS ===============-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/main.js"></script>
+    <script src="js/request.js"></script>
+  </body>
+</html>

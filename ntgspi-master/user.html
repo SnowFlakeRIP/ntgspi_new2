@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+  	<link rel="stylesheet" href="css/style.css">
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Личный кабинет пользователя</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__head">
+          <span class="nav__logo">
+            <a href="user.html"><img src="img/logo.png" alt = "logo" width="296" height="38"></a>
+          </span>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+
+      <div class="menu__bar">
+        <div class="menu">
+          <li class="search__box">
+              <i class='bx bx-search icon'></i>
+              <input type="text" class="search" placeholder="Поиск...">
+          </li>
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__item-link" href="user.html">
+                <i class='bx bxs-user icon'></i>
+                <span class="text nav__text">Профиль</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__courses.html">
+                <i class='bx bxs-user-detail icon'></i>
+                <span class="text nav__text">Мои курсы</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__payment.html">
+                <i class='bx bxs-wallet icon' ></i>
+                <span class="text nav__text">Оплата</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__registration-course.html">
+                <i class='bx bxs-edit-alt icon'></i>
+                <span class="text nav__text">Заявки на курсы</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom__content">
+          <li class="menu__item">
+            <a class="menu__item-link" href="#">
+              <i class='bx bxs-exit icon'></i>
+              <span class="text nav__text">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <section class="user__profile">
+      <div class="container__profile">
+        <header>Профиль пользователя username</header>
+        <form action="#">
+          <div class="form__profile">
+            <div class="details personal">
+              <span class="profile__title">ДАННЫЕ ПОЛЬЗОВАТЕЛЯ</span>
+  
+              <div class="fields">
+                <div class="input-field">
+                  <label>Имя</label>
+                  <input type="text" id = 'name' placeholder="Имя..." required>
+                </div>
+                <div class="input-field">
+                  <label>Фамилия</label>
+                  <input type="text" id = 'secondname' placeholder="Фамилия..." required>
+                </div>
+                <div class="input-field">
+                  <label>Отчество</label>
+                  <input type="text" id = 'middlename' placeholder="Отчество..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Дата рождения</label>
+                  <input type="date" id = 'date' placeholder="Дата рождения..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Пол</label>
+                  <input type="text" id = 'gender' placeholder="Пол..." required>
+                </div>
+                <div class="input-field">
+                  <label>Номер телефона</label>
+                  <input type="text" id = 'phoneNumber' placeholder="Номер телефона..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>E-mail</label>
+                  <input type="text" id = 'email' placeholder="E-mail..." required>
+                </div>
+                
+                <div class="input-field">
+                  <label>Город</label>
+                  <input type="text" id = 'city' placeholder="Город..." required>
+                </div>
+              </div>
+            </div>
+            <div class="details identify">
+              <span class="profile__title">ПАСПОРТНЫЕ ДАННЫЕ</span>
+  
+              <div class="fields">
+                <div class="input-field">
+                  <label>Серия паспорта</label>
+                  <input type="text" id = 'serial' placeholder="Серия..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Номер паспорта</label>
+                  <input type="text" id = 'number' placeholder="Номер..." required>
+                </div>               
+              </div>
+              <button class="save__data" type="submit">
+                <span id="save_button" class="btn__save">Сохранить данные</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  <!--=============== JS ===============-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
+

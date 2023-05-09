@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="css/style.css">
+  <!--=============== BOXICONS ===============-->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <title>Программы подготовки НТГСПИ</title>
+</head>
+<body>
+<!--=============== HEADER ===============-->
+<header class="header" id = "header">
+  <nav class="nav container">
+    <a href="index.html" class="nav__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
+    
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="courses.html" class="nav__link active-link">КУРСЫ</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="#contacts" class="nav__link">КОНТАКТЫ</a>
+        </li>
+
+        <li class="nav__item">
+          <a href="FAQ.html" class="nav__link">FAQ</a>
+        </li>
+      </ul>
+    </div>
+      <a href = "#" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>
+      <a href = "auth.html" class="button button__authorization">ВХОД</a>
+  </nav>	
+</header>
+<!--=============== COURSES ===============-->
+<section class="courses section" id = "courses">
+  <h1 class="section__title">ПРОГРАММЫ ПОДГОТОВКИ НТГСПИ</h1>
+  <p class="section__subtitle">Выберите программу, которая подойдет именно Вам</p>
+
+  <div class="filter container">
+    <button class="button button__category" data-filter="all">ВСЕ</button>
+    <button class="button button__category" data-filter="exam">КУРСЫ ПОДГОТОВКИ ЕГЭ</button>
+    <button class="button button__category" data-filter="qualification">ПОВЫШЕНИЕ КВАЛИФИКАЦИИ</button>
+    <button class="button button__category" data-filter="retraining">ПРОФЕССИОНАЛЬНАЯ ПЕРЕПОДГОТОВКА</button>
+  </div>
+  <div id="courses_from_db" class="course__container grid container">
+<!--  Данные выводятся через js в файле courses.js   -->
+  </div>
+<!--  <div id="courses_from_db" class="course__container grid container">-->
+<!--    <div class="course__item exam">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course1.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Курсы подготовки ЕГЭ</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>25 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 4.5 (48)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Подготовка к ЕГЭ по профильной математике</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher1.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Тамара Юрьевна</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">3200 ₽</span>-->
+<!--          <span class="course__price">8500 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">Узнать подробнее</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="course__item exam">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course2.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Курсы подготовки ЕГЭ</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>25 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 4.2 (30)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Подготовка к ЕГЭ по русскому языку</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher2.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Алёна Юрьевна</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">4200 ₽</span>-->
+<!--          <span class="course__price">7500 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">Узнать подробнее</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="course__item exam">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course3.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Курсы подготовки ЕГЭ</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>25 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 4.0 (23)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Подготовка к ЕГЭ по обществознанию</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher3.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Наталья Леонидовна</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">2200 ₽</span>-->
+<!--          <span class="course__price">9100 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">Узнать подробнее</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="course__item exam">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course4.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Курсы подготовки ЕГЭ</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>25 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 4.8 (17)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Подготовка к ЕГЭ по биологии</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher4.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Наталья Ивановна</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">1200 ₽</span>-->
+<!--          <span class="course__price">6200 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">Узнать подробнее</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="course__item qualification">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course5.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Повышение квалификации</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>18 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 4.4 (12)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Социальная работа с гражданами пожилого возраста и инвалидами</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher5.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Елена Анатольевна</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">500 ₽</span>-->
+<!--          <span class="course__price">2300 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">Узнать подробнее</span>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="course__item retraining">-->
+<!--      <div class="course__box">-->
+<!--        <img src="img/course6.jpg" alt="" class="course__img">-->
+<!--        <div class="course__tag">Профессиональная переподготовка</div>-->
+<!--      </div>-->
+<!--      <div class="course__content">-->
+<!--        <div class="course__meta">-->
+<!--          <div class="course__lesson">-->
+<!--            <i class="uil uil-book-alt"></i>100 занятий-->
+<!--          </div>-->
+
+<!--          <div class="course__rating">-->
+<!--            <i class="uis uis-star">★</i> 3.9 (26)-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <h3 class="course__title">Управление персоналом</h3>-->
+<!--        <div class="course__teacher">-->
+<!--          <img src="img/teacher6.jpg" alt="" class="course__teacher-img">-->
+<!--          <h3 class="course__teacher-title">Николай Вадимович</h3>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="course__more">-->
+<!--        <div class="course__prices">-->
+<!--          <span class="course__discount">1300 ₽</span>-->
+<!--          <span class="course__price">8900 ₽</span>-->
+<!--        </div>-->
+
+<!--        <span class="course__button">-->
+<!--          Узнать подробнее <i class="uil uil-arrow-right course__button-icon"></i>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+    <div class="pagination container">
+      <span class="pagination__prev-button"><i class='bx bx-left-arrow-alt 
+          pagination__button-icon'></i>Предыдущая</span>
+      <span class="pagination__button">1</span>
+      <span class="pagination__button">2</span>
+      <span class="pagination__button">3</span>
+      <span class="pagination__next-button">Следующая<i class='bx bx-right-arrow-alt 
+          pagination__button-icon'></i></span>
+    </div>
+</section>
+<!--=============== FOOTER ===============-->
+<footer id = "contacts">
+  <div class = "footer container">
+    <a href="index.html" class="footer__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
+    <a href = "#" class="footer__img"><img src = "img/map.png" width="267" height="231" alt = "map"></a>
+    <div class="footer__contacts">
+      <div class="footer__item">
+        <h3 class="footer__title">Контакты</h3>
+        <p class="footer__content">622031, Свердловская обл., Нижний Тагил,<br>ул. Красногвардейская, 57</p>
+      </div>
+      <div class="footer__item">
+        <h3 class="footer__title">Режим работы</h3>
+        <p class="footer__content">с 8.30 – 17.00,<br>суббота и воскресение – выходные дни</p>
+      </div>
+      <div class="footer__item">
+        <h3 class="footer__title">Телефоны</h3>
+        <p class="footer__content">+7 (3435) 25-57-44<br>+79068049966</p>
+      </div>
+    </div>
+    <div class="footer__contacts">
+      <div class="footer__item">
+        <h3 class="footer__title">Email</h3>
+        <p class="footer__content">ntspi_cdpo@mail.ru</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--=============== JS ===============-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/courses.js"></script>
+
+</body>
+</html>

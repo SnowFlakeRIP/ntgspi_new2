@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+  	<link rel="stylesheet" href="css/style.css">
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Личный кабинет пользователя</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__head">
+          <span class="nav__logo">
+            <a href="user.html"><img src="img/logo.png" alt = "logo" width="296" height="38"></a>
+          </span>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+
+      <div class="menu__bar">
+        <div class="menu">
+          <li class="search__box">
+              <i class='bx bx-search icon'></i>
+              <input type="text" class="search" placeholder="Поиск...">
+          </li>
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__item-link" href="user.html">
+                <i class='bx bxs-user icon'></i>
+                <span class="text nav__text">Профиль</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__courses.html">
+                <i class='bx bxs-user-detail icon'></i>
+                <span class="text nav__text">Мои курсы</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__payment.html">
+                <i class='bx bxs-wallet icon' ></i>
+                <span class="text nav__text">Оплата</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="user__registration-course.html">
+                <i class='bx bxs-edit-alt icon'></i>
+                <span class="text nav__text">Заявки на курсы</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom__content">
+          <li class="menu__item">
+            <a class="menu__item-link" href="#">
+              <i class='bx bxs-exit icon'></i>
+              <span class="text nav__text">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <section class="myCourses-main">
+      <div class="myCourse__container">
+        <header>МОИ КУРСЫ</header>
+        <a href="courses.html">Перейти к курсам</a>
+        <ul>
+          <li class="active">Мои курсы</li>
+        </ul>
+        <div class="myCourse">
+          <div class="myCourse__box">
+            <h3 class="">ПРОФИЛЬНАЯ МАТЕМАТИКА</h3>
+            <p>60% - пройдено</p>
+            <img class = "myCourse__img" src = "img/course1.jpg">
+            <a class="btn__continue">ПРОДОЛЖИТЬ ОБУЧЕНИЕ</a>
+          </div>
+        </div>
+        <div class="myCourse">
+          <div class="myCourse__box">
+            <h3 class="">РУССКИЙ ЯЗЫК</h3>
+            <p>50% - пройдено</p>
+            <img class = "myCourse__img" src = "img/course2.jpg">
+            <a class="btn__continue">ПРОДОЛЖИТЬ ОБУЧЕНИЕ</a>
+          </div>
+        </div>
+        <div class="myCourse">
+          <div class="myCourse__box">
+            <h3 class="">ОБЩЕСТВОЗНАНИЕ</h3>
+            <p>30% - пройдено</p>
+            <img class = "myCourse__img" src = "img/course3.jpg">
+            <a class="btn__continue">ПРОДОЛЖИТЬ ОБУЧЕНИЕ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!--=============== JS ===============-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/main.js"></script>
+    <script src="js/user_courses.js"></script>
+  </body>
+</html>
