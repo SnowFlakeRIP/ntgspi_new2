@@ -18,6 +18,28 @@ function changeButtons(){
           <a href = "./user.html" class="button button__authorization">ЛИЧНЫЙ КАБИНЕТ</a>`
     }
 }
+news()
+async function news(){
+    try{
+        const response = await axios.get('http://localhost:3000/news/show/all')
+        const news_cont = document.querySelector('.news__container')
+        for ( const news of response.data.message ) {
+            news_cont.innerHTML += ` <div class="news__box">
+        <div class="news__img">
+          <img src="${news.newsPath}" alt="news">
+        </div>
+        <div class="news__text">
+          <span>${news.newsDate2}</span>
+          <a href="news__details.html" class="news__title">${news.newsTitle}</p>
+<!--          <a href="news__details.html">Узнать подробнее</a>-->
+        </div>
+      </div>`
+        }
+    }
+    catch ( e ) {
+        console.log(e)
+    }
+}
 
 button.onclick = function () {
     downloadPDF()

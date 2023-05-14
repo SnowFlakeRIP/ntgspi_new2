@@ -15,8 +15,8 @@ exports.up = pgm => {
             default: null
         },
         requestConfirm: {
-            type: 'boolean',
-            default: false
+            type: 'int',
+            default: 1
         }
     }, {
         ifNotExists: true,

@@ -111,6 +111,18 @@ module.exports = function (fastify, opts, next) {
         }
     })
 
+    fastify.route({
+        method: "GET",
+        url: '/myCourse/reg',
+        async handler(request, reply) {
+            const data = await job.getCourseReg(request.body, request.info)
+            if (data.statusCode !== 200) {
+                reply.code(400)
+            }
+            reply.send(data)
+        }
+    })
+
     next()
 }
 

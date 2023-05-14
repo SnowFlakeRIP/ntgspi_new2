@@ -1,6 +1,20 @@
 const job = require('../../handlers/admin/handler')
-
+const { checkTokenAndSetRequest } = require( "../../dependes" );
+const newsjob = require('../../handlers/news/handler')
 module.exports = function (fastify, opts, next) {
+    fastify.addHook('preHandler', async (request, reply) => {
+        try {
+            let ch = await checkTokenAndSetRequest(request)
+            console.log(ch)
+            if (!ch) {
+                reply.code(403)
+                reply.send({message: 'Access denied', statusCode: 403})
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    })
+
     fastify.route({
         method: "GET",
         url: '/courses/:page',
@@ -62,6 +76,73 @@ module.exports = function (fastify, opts, next) {
             reply.send(data)
         }
     })
+
+    fastify.route({
+        url: '/course/create',
+        method: 'POST',
+        schema: {
+            body: {
+                type: 'object',
+                properties: {
+                    newsTitle:{type:'string'},
+                    newsText:{type:'string'},
+                    newsDate:{type:'string'},
+                },
+                required: [],
+            },
+            response: {
+                400: {
+                    type: 'object',
+                    properties: {
+                        message: {type: 'string'},
+                        statusCode: {type: 'integer'},
+                    },
+                },
+            },
+        },
+        async handler(request, reply) {
+            let data = await newsjob.createNews(request.body, request.info, request.raw.url, request.headers);
+            if (data.statusCode !== 200) {
+                reply.status(400);
+            }
+            reply.send(data);
+        },
+    });
+
+    fastify.route({
+        url:    '/news/file/add',
+        method: 'POST',
+        schema: {
+            body:     {
+                type:       'object',
+                properties: {
+                    newsId: { type: 'number' },
+                    file:          {
+                        type:  'array',
+                        items: fastify.getSchema('MultipartFileType'),
+                    },
+                },
+                required:   [ 'newsId', 'file' ],
+            },
+            response: {
+
+                400: {
+                    type:       'object',
+                    properties: {
+                        message:    { type: 'string' },
+                        statusCode: { type: 'integer' },
+                    },
+                },
+            },
+        },
+        async handler(request, reply) {
+            let data = await newsjob.uploadImage(request.body);
+            if (data.statusCode !== 200) {
+                reply.status(400);
+            }
+            reply.send(data);
+        },
+    });
 
     next();
 }

@@ -8,53 +8,25 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <input class="form-control" id="courseName" type="text" placeholder="Введите название курса"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <input class="form-control" id="courseTarget" type="text" placeholder="Введите целевую аудиторию курса"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <input class="form-control" id="courseHours" type="number" placeholder="Введите количество часов курса"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="courseType">Выберите тип курса</label>
-                <select class="form-select" id="courseType">
-                    <option value="1">Курсы подготовки ЕГЭ</option>
-                    <option value="2">Повышение квалификации</option>
-                    <option value="3">Профессиональная переподготовка</option>
-                </select>
-            </div>
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="courseTeacher">Выбор преподавателя</label>
-                <select class="form-select" id="courseTeacher">
-                    <option value="1">Тамара Юрьевна</option>
-                    <option value="2">Алёна Юрьевна</option>
-                    <option value="3">Наталья Леонидовна</option>
-                    <option value="4">Наталья Ивановна</option>
-                    <option value="5">Елена Анатольевна</option>
-                    <option value="6">Николай Вадимович</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-6">
-            <input class="form-control" id="rating" type="number" placeholder="Введите рейтинг курса"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <input class="form-control" id="count_rating" type="number" placeholder="Введите количество оценок курса"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <input class="form-control" id="oldPrice" type="number" placeholder="Введите цену без скидки"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <input class="form-control" id="newPrice" type="number" placeholder="Введите цену со скидкой"
-                   aria-label="default input example" style="margin-bottom: 15px;margin-top: 15px">
-            <div class="input-group mb-3" >
-                <label class="input-group-text" for="img">Выбор главного изображения курса</label>
-                <input type="file" class="form-control" accept=".jpg, .jpeg, .png" id="img">
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <button id="addCourse">Добавить курс</button>
-    </div>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./admin.html">На главную</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./admin_courses.html">Курсы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./admin_news.html">Новости</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./admin_courses.html">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./admin_courses.html">Active</a>
+        </li>
+    </ul>
 </div>
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="./js/admin.js"></script>
 </body>

@@ -96,7 +96,7 @@ async function confirmCourseRequest(object) {
     try {
         await client.query(`BEGIN`)
         const changeReqStatus = await client.query(`UPDATE courserequest
-                                                    SET "requestConfirm" = true
+                                                    SET "requestConfirm" = 2
                                                     WHERE id = $1 RETURNING "courseId", "userId"`, [object.requestId])
         if (changeReqStatus.rowCount > 0) {
             console.log(`успешно обновили состояние запроса`)

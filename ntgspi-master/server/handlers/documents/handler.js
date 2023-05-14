@@ -434,6 +434,7 @@ async function consentPersonalLess18(object) {
 }
 
 async function KPKAndPP(object) {
+    console.log(object)
     let data = {
         message: 'error',
         success: false,

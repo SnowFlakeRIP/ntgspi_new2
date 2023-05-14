@@ -161,9 +161,44 @@ async function myCourse(object, info) {
     return data
 }
 
+/**
+ * Мои заявки
+ * @param {Object} object
+ * @param {Object} user
+ * @param {Object} user.userId
+ * @param {String} apiRoute
+ * @param {String} headers
+ * @returns {Promise<{message: string, statusCode: number}>}
+ */
+async function getCourseReg (object, user) {
+    let data = {
+        message:   'error',
+        statusCode:400,
+    };
+    const funcName = 'getCourseREg';
+    const client = await pool.connect();
+    try {
+        const result = await client.query( `select *
+                                            from courserequest cr
+                                                     inner join courses c on cr."courseId" = c.courseid
+                                            where "userId" = $1 order by id desc`,[user.userId] )
+        data.message = result.rows
+        data.statusCode = 200
+    }
+    catch ( err ) {
+        console.log(err)
+    }
+    finally {
+        client.release();
+    }
+    return data
+}
+
 module.exports = {
     setUserData: setUserData,
     getUserData: getUserData,
     joinToCourse: joinToCourse,
-    myCourse: myCourse
+    myCourse: myCourse,
+    getCourseReg:   getCourseReg,
+
 }

@@ -75,77 +75,22 @@
         <div class="table__header-title">Заявки на курсы</div>
       </section>
       <section class="table__body">
-          <button class="create__request">СОЗДАТЬ ЗАЯВКУ</button>
-        <table>
+        <table id="table">
           <thead>
-            <tr>
-              <th>id</th>
-              <th>Заказчик</th>
-              <th>Название курса</th>
-              <th>Цена</th>
-              <th>Статус</th>
-              <th>Действие</th>
-            </tr>
+          <tr>
+            <th>id</th>
+            <th>Название курса</th>
+            <th>Цена</th>
+            <th>Статус</th>
+            <th>Заявление</th>
+          </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><img src="img/user1.jpg" alt = "">Данил Махмудов</td>
-              <td>Подготовка к ЕГЭ по профильной математике</td>
-              <td><strong>3200 ₽</strong></td>
-              <td>
-                <p class="status in-processing">В обработке</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Редактировать</a>
-                <a href="#" class="crud__btn">Удалить</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><img src="img/user2.jpg" alt = "">Никита Арзамазов</td>
-              <td>Социальная работа с гражданами пожилого возраста и инвалидами</td>
-              <td><strong>500 ₽</strong></td>
-              <td>
-                <p class="status in-processing">В обработке</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Редактировать</a>
-                <a href="#" class="crud__btn">Удалить</a>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><img src="img/user3.jpg" alt = "">Диана Береснева</td>
-              <td>Подготовка к ЕГЭ по русскому языку</td>
-              <td><strong>4200 ₽</strong></td>
-              <td>
-                <p class="status approved">Заявка принята</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Редактировать</a>
-                <a href="#" class="crud__btn">Удалить</a>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><img src="img/user4.jpg" alt = "">Михаил Вахрушев</td>
-              <td>Подготовка к ЕГЭ по обществознанию</td>
-              <td><strong>2200 ₽</strong></td>
-              <td>
-                <p class="status cancel">Заявка отклонена</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Редактировать</a>
-                <a href="#" class="crud__btn">Удалить</a>
-              </td>
-            </tr>
-          </tbody>
         </table>
       </section>
     </main>
   </section>
   <!--=============== JS ===============-->
-  <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/user_reg.js"></script>
   </body>
 </html>

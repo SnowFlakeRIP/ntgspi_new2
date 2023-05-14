@@ -15,6 +15,10 @@ exports.up = pgm => {
         },
         password: {
             type: 'varchar(100)'
+        },
+        role:{
+            type:'int',
+            default:1
         }
     }, {
         ifNotExists: true,

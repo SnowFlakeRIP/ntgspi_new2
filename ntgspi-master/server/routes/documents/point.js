@@ -1,4 +1,5 @@
 const job = require('../../handlers/documents/handler')
+const { checkTokenAndSetRequest } = require( "../../dependes" );
 
 module.exports = function (fastify, opts, next) {
     fastify.route({
@@ -170,18 +171,34 @@ module.exports = function (fastify, opts, next) {
             body: {
                 type: 'object',
                 properties: {
-                    userId: {
-                        type: 'number'
-                    },
                     courseId: {
                         type: 'number'
                     }
                 },
-                required: ['userId', 'courseId']
+                required: [ 'courseId']
             }
         },
         async handler(request, reply) {
-            const data = await job.KPKAndPP(request.body)
+            try {
+                if(request.raw.url !== '/courses/all'){
+                    let ch = await checkTokenAndSetRequest( request )
+                    console.log( ch )
+                    if ( !ch ) {
+                        reply.code( 403 )
+                        reply.send( {
+                            message:   'Access denied',
+                            statusCode:403
+                        } )
+                    }
+                }
+            }
+            catch ( e ) {
+                console.error( e )
+            }
+            const data = await job.KPKAndPP( {
+                ...request.body,
+                ...request.info
+            })
             if (data.statusCode !== 200) {
                 reply.status(400)
             }

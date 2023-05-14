@@ -92,6 +92,11 @@ async function getCourseInfo () {
         console.log( response )
     }
     catch ( e ) {
+        if(e.response.status === 403){
+            localStorage.removeItem('token')
+            window.close()
+            window.open('./auth.html')
+        }
         console.log( e )
     }
 }
