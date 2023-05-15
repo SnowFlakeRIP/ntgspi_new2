@@ -1,4 +1,4 @@
-const {pool} = require('./../../dependes')
+const {pool} = require('../../dependes')
 const {promises: fsAs} = require('fs');
 const fs = require('fs')
 const UUID = require('uuid');
