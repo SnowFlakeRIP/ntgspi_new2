@@ -10,7 +10,7 @@ async function login() {
         alert('Введите пароль')
     } else {
         try {
-            const response = await axios.post('http://localhost:3000/check_user/auth', {
+            const response = await axios.post('http://195.161.41.245:3001/check_user/auth', {
                 login: login,
                 password: password,
             })
@@ -38,7 +38,7 @@ async function checkToken(){
 
 async function sendResetEmail() {
     try {
-        const response = await axios.post('http://localhost:3000/check_user/clearPassword', {
+        const response = await axios.post('http://195.161.41.245:3001/check_user/clearPassword', {
             email: ''
         })
         alert(response.data.message)

@@ -3,7 +3,7 @@ const table = document.querySelector('#table')
 async function getcourses(){
     try{
         const token = localStorage.getItem('token')
-        const response = await axios.get( 'http://localhost:3000/user/myCourse/reg', {
+        const response = await axios.get( 'http://195.161.41.245:3001/user/myCourse/reg', {
             headers:{
                 'access':token
             }
@@ -76,7 +76,7 @@ async function downloadFiles(data, filename, type) {
 async function downloadDoc(courseId){
     try {
         const token = localStorage.getItem('token')
-        const response = await axios.post( 'http://localhost:3000/documents/KPKAndPP', {courseId},
+        const response = await axios.post( 'http://195.161.41.245:3001/documents/KPKAndPP', {courseId},
             {
                 headers:{
                     'access':token

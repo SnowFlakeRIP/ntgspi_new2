@@ -1,6 +1,6 @@
 async function getCourses(){
     try{
-        const data = await axios.get(`http://localhost:3000/courses/all`)
+        const data = await axios.get(`http://195.161.41.245:3001/courses/all`)
         const div = document.querySelector('#courses_from_db')
         for (const course of data.data.message) {
             div.innerHTML += `<div class="course__item exam">

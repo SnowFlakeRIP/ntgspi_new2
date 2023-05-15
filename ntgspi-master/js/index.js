@@ -21,7 +21,7 @@ function changeButtons(){
 news()
 async function news(){
     try{
-        const response = await axios.get('http://localhost:3000/news/show/all')
+        const response = await axios.get('http://195.161.41.245:3001/news/show/all')
         const news_cont = document.querySelector('.news__container')
         for ( const news of response.data.message ) {
             news_cont.innerHTML += ` <div class="news__box">

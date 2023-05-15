@@ -11,7 +11,7 @@ getSettings()
 async function getSettings () {
     try {
         const token = localStorage.getItem( 'token' )
-        const response = await axios.get( 'http://localhost:3000/user/getUserData', {
+        const response = await axios.get( 'http://195.161.41.245:3001/user/getUserData', {
             headers:{
                 'access':token
             }
@@ -33,7 +33,7 @@ async function createRequest () {
     try {
         const token = localStorage.getItem( 'token' )
         const courseid = localStorage.getItem('courseid')
-        const response = await axios.post( 'http://localhost:3000/user/joinToCourse',{
+        const response = await axios.post( 'http://195.161.41.245:3001/user/joinToCourse',{
             courseId:courseid
         }, {
             headers:{

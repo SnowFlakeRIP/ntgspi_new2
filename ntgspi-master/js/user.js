@@ -23,7 +23,7 @@ async function setUserData(event){
 
     const token = localStorage.getItem('token')
     try{
-        await axios.post('http://localhost:3000/user/setUserData',{
+        await axios.post('http://195.161.41.245:3001/user/setUserData',{
             userPhone:userPhone,
             passportSerial:passSerial,
             passportNumber:passNumber,
@@ -48,7 +48,7 @@ async function setUserData(event){
 async function getSettings () {
     try {
         const token = localStorage.getItem( 'token' )
-        const response = await axios.get( 'http://localhost:3000/user/getUserData', {
+        const response = await axios.get( 'http://195.161.41.245:3001/user/getUserData', {
             headers:{
                 'access':token
             }

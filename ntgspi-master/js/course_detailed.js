@@ -15,7 +15,7 @@ async function getCourseInfo () {
     try {
         const courseId = localStorage.getItem( 'lastCourse' )
         const token = localStorage.getItem( 'token' )
-        const response = await axios.post( 'http://localhost:3000/courses/detailed', {
+        const response = await axios.post( 'http://195.161.41.245:3001/courses/detailed', {
             courseid:courseId
         }, {
             headers:{
