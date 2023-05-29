@@ -11,7 +11,7 @@ getSettings()
 async function getSettings () {
     try {
         const token = localStorage.getItem( 'token' )
-        const response = await axios.get( 'http://195.161.41.245:3001/user/getUserData', {
+        const response = await axios.get( 'https://ntgspi.devsnowflake.ru/api/user/getUserData', {
             headers:{
                 'access':token
             }
@@ -33,7 +33,7 @@ async function createRequest () {
     try {
         const token = localStorage.getItem( 'token' )
         const courseid = localStorage.getItem('courseid')
-        const response = await axios.post( 'http://195.161.41.245:3001/user/joinToCourse',{
+        const response = await axios.post( 'https://ntgspi.devsnowflake.ru/api/user/joinToCourse',{
             courseId:courseid
         }, {
             headers:{

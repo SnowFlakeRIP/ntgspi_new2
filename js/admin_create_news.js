@@ -5,7 +5,7 @@ const createnews = document.querySelector('#createnews')
 async function createNews(){
     try{
         const token = localStorage.getItem('token-admin')
-        const response = await axios.post('http://195.161.41.245:3001/admin/course/create',{
+        const response = await axios.post('https://ntgspi.devsnowflake.ru/api/admin/course/create',{
                 newsTitle:newsTitle.value,
                 newsText:newsText.value,
                 newsDate:newsDate.value,

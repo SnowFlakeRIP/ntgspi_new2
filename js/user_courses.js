@@ -12,7 +12,7 @@ async function getUserCourses(){
     const token = localStorage.getItem('token')
 
     try {
-        const response = await axios.get( 'http://195.161.41.245:3001/user/myCourse', {
+        const response = await axios.get( 'https://ntgspi.devsnowflake.ru/api/user/myCourse', {
             headers:{
                 'access':token
             }

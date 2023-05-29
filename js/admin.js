@@ -12,7 +12,7 @@ async function createCourse(){
     let img = document.querySelector('#img').value
     console.log(document.querySelector('#img').files)
     img = './img/' + img.substring(12)
-    const data = await axios.post('http://195.161.41.245:3001/course',{
+    const data = await axios.post('https://ntgspi.devsnowflake.ru/api/course',{
         coursename:courseName,
         coursetarget:courseTarget,
         coursetypes_coursetypeid:courseType,

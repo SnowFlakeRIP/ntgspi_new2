@@ -18,7 +18,7 @@ async function registration() {
     }
     else {
         try {
-            const response = await axios.post('http://195.161.41.245:3001/check_user/register', {
+            const response = await axios.post('https://ntgspi.devsnowflake.ru/api/check_user/register', {
                 password: pas1,
                 login: login,
                 email: email,

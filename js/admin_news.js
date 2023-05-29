@@ -2,7 +2,7 @@ const news = document.querySelector(`.news`)
 const createnews = document.querySelector('#createnews')
 async function getNews(){
     try {
-        const response = await axios.get( 'http://195.161.41.245:3001/news/show/all' )
+        const response = await axios.get( 'https://ntgspi.devsnowflake.ru/api/news/show/all' )
 
         for ( const newss of response.data.message ) {
             news.innerHTML += `<div class="card" id="news${newss.newsId}" style="width: 18rem;">
@@ -45,7 +45,7 @@ async function save(newsId){
         console.log(image.files)
         formData.append("file", image.files[0]);
         formData.append('newsId',newsId)
-        const response = await axios.post('http://195.161.41.245:3001/admin/news/file/add',formData,{
+        const response = await axios.post('https://ntgspi.devsnowflake.ru/api/admin/news/file/add',formData,{
             headers:{
                 'Content-Type': 'multipart/form-data',
                 'access':token
