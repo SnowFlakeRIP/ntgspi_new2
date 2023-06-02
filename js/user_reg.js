@@ -14,7 +14,7 @@ async function getcourses(){
                 2:'Подтверждена',
                 3:'Отклонена'
             }
-            table.innerHTML += ` 
+            table.innerHTML += `
           <tbody>
             <tr>
               <td>${item.id}</td>
@@ -78,6 +78,7 @@ async function downloadDoc(courseId){
         const token = localStorage.getItem('token')
         const response = await axios.post( 'https://ntgspi.devsnowflake.ru/api/documents/KPKAndPP', {courseId},
             {
+                responseType: 'blob', // надо проверить
                 headers:{
                     'access':token
                 }
