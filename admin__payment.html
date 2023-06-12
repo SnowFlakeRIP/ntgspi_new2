@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+  	<link rel="stylesheet" href="css/style.css">
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Панель администратора</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__head">
+          <span class="nav__logo">
+            <a href="admin__panel.html"><img src="img/logo.png" alt = "logo" width="296" height="38"></a>
+          </span>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+
+      <div class="menu__bar">
+        <div class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__panel.html">
+                <i class='bx bxs-user icon'></i>
+                <span class="text nav__text">Профиль</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__courses.html">
+                <i class='bx bxs-user-detail icon'></i>
+                <span class="text nav__text">Курсы</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__payment.html">
+                <i class='bx bxs-wallet icon' ></i>
+                <span class="text nav__text">Оплата</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__registration-course.html">
+                <i class='bx bxs-edit-alt icon'></i>
+                <span class="text nav__text">Заявки на курсы</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom__content">
+          <li class="menu__item">
+            <a class="menu__item-link" href="#">
+              <i class='bx bxs-exit icon'></i>
+              <span class="text nav__text">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+  <div class="table__container">
+    <main class="table__payment">
+      <section class="table__header">
+        <div class="table__header-title">Оплата курсов</div>
+      </section>
+      <section class="table__body">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Заказчик</th>
+              <th>Название курса</th>
+              <th>Цена</th>
+              <th>Статус</th>
+              <th>Дата оплаты</th>
+              <th>Оплата</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><img src="img/user1.jpg" alt = "">Данил Махмудов</td>
+              <td>Подготовка к ЕГЭ по профильной математике</td>
+              <td><strong>3200 ₽</strong></td>
+              <td>
+                <p class="status approved">Успешно</p>
+              </td>
+              <td>29.03.2023</td>
+              <td>Курс оплачен</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><img src="img/user2.jpg" alt = "">Никита Арзамазов</td>
+              <td>Социальная работа с гражданами пожилого возраста и инвалидами</td>
+              <td><strong>500 ₽</strong></td>
+              <td>
+                <p class="status approved">Успешно</p>
+              </td>
+              <td>17.04.2023</td>
+              <td>Курс оплачен</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><img src="img/user3.jpg" alt = "">Диана Береснева</td>
+              <td>Подготовка к ЕГЭ по русскому языку</td>
+              <td><strong>4200 ₽</strong></td>
+              <td>
+                <p class="status in-processing">Ожидание</p>
+              </td>
+              <td></td>
+              <td>
+                <a href="#" class="btnPay">Подтвердить</a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><img src="img/user4.jpg" alt = "">Михаил Вахрушев</td>
+              <td>Подготовка к ЕГЭ по обществознанию</td>
+              <td><strong>2200 ₽</strong></td>
+              <td>
+                <p class="status cancel">Нет оплаты</p>
+              </td>
+              <td></td>
+              <td>
+                <a href="#" class="btnPay">Подтвердить</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+    <!--=============== JS ===============-->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>

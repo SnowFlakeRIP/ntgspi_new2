@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== CSS ===============-->
+  	<link rel="stylesheet" href="css/style.css">
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Панель администратора</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <nav class="sidebar close">
+      <header>
+        <div class="sidebar__head">
+          <span class="nav__logo">
+            <a href="admin__panel.html"><img src="img/logo.png" alt = "logo" width="296" height="38"></a>
+          </span>
+        </div>
+
+        <i class='bx bx-chevron-right toggle'></i>
+      </header>
+
+      <div class="menu__bar">
+        <div class="menu">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__panel.html">
+                <i class='bx bxs-user icon'></i>
+                <span class="text nav__text">Профиль</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__courses.html">
+                <i class='bx bxs-user-detail icon'></i>
+                <span class="text nav__text">Курсы</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__payment.html">
+                <i class='bx bxs-wallet icon' ></i>
+                <span class="text nav__text">Оплата</span>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__item-link" href="admin__registration-course.html">
+                <i class='bx bxs-edit-alt icon'></i>
+                <span class="text nav__text">Заявки на курсы</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom__content">
+          <li class="menu__item">
+            <a class="menu__item-link" href="#">
+              <i class='bx bxs-exit icon'></i>
+              <span class="text nav__text">Выход</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <section class="user__profile">
+      <div class="container__profile">
+        <header>КУРСЫ</header>
+        <form action="#">
+          <div class="form__profile">
+            <div class="details personal">
+              <span class="admin-courses-add-subtitle">Для ДОБАВЛЕНИЯ курса заполните необходимые поля</span>
+  
+              <div class="fields">
+                <div class="input-field">
+                  <label for="courseName">Название курса</label>
+                  <input id="courseName" type="text" placeholder="Введите название курса..." required>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseTraining">Тип обучения</label>
+                  <select id="courseTraining">
+                    <option value="1">Очное</options>
+                    <option value="2">Дистанционное</options>
+                    <option value="3">Заочное</options>
+                  </select>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseType">Тип курса</label>
+                  <select id="courseType">
+                    <option value="1">Курсы подготовки ЕГЭ</options>
+                    <option value="2">Повышение квалификации</options>
+                    <option value="3">Профессиональная переподготовка</options>
+                  </select>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseTeacher">Выбор преподавателя</label>
+                  <select id="courseTeacher">
+                    <option value="1">Тамара Юрьевна</option>
+                    <option value="2">Алёна Юрьевна</option>
+                    <option value="3">Наталья Леонидовна</option>
+                    <option value="4">Наталья Ивановна</option>
+                    <option value="5">Елена Анатольевна</option>
+                    <option value="6">Николай Вадимович</option>
+                </select>
+                </div>
+
+                <div class="input-field">
+                  <label>Количество занятий</label>
+                  <input type="text" placeholder="Введите количество занятий..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Длительность</label>
+                  <input type="text" placeholder="Введите длительность обучения..." required>
+                </div>
+                
+                <div class="input-field">
+                  <label for="oldPrice">Цена без скидки</label>
+                  <input id="oldPrice" type="text" placeholder="Введите цену без скидки..." required>
+                </div>
+
+                <div class="input-field">
+                  <label for="newPrice">Цена со скидкой</label>
+                  <input id="newPrice" type="text" placeholder="Введите цену со скидкой..." required>
+                </div>
+
+                <div class="input-field">
+                  <label for="img">ПРИКРЕПИТЬ ИЗОБРАЖЕНИЯ КУРСА</label>
+                  <input class="input-file" type="file" accept=".jpg, .jpeg, .png" id="img">
+                </div>
+
+              </div>
+            </div>
+            <button id="addCourse" class="save__data" type="submit">
+              <span class="btn__save">Добавить курс</span>
+            </button>
+          </div>
+          <div class="form__profile">
+            <div class="details personal">
+              <span class="admin-courses-edit-subtitle">Для ИЗМЕНЕНИЯ курса заполните необходимые поля</span>
+  
+              <div class="fields">
+                <div class="input-field">
+                  <label for="">Название курса</label>
+                  <select id="">
+                    <option value="1">Подготовка к ЕГЭ по профильной математике</option>
+                    <option value="2">Подготовка к ЕГЭ по русскому языку</option>
+                    <option value="3">Подготовка к ЕГЭ по обществознанию</option>
+                    <option value="4">Подготовка к ЕГЭ по биологии</option>
+                    <option value="5">Социальная работа с гражданами пожилого возраста и инвалидами</option>
+                    <option value="6">Управление персоналом</option>
+                  </select>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseTraining">Тип обучения</label>
+                  <select id="courseTraining">
+                    <option value="1">Очное</option>
+                    <option value="2">Дистанционное</option>
+                    <option value="3">Заочное</option>
+                  </select>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseType">Тип курса</label>
+                  <select id="courseType">
+                    <option value="1">Курсы подготовки ЕГЭ</option>
+                    <option value="2">Повышение квалификации</option>
+                    <option value="3">Профессиональная переподготовка</option>
+                  </select>
+                </div>
+
+                <div class="input-field">
+                  <label for="courseTeacher">Выбор преподавателя</label>
+                  <select id="courseTeacher">
+                    <option value="1">Тамара Юрьевна</option>
+                    <option value="2">Алёна Юрьевна</option>
+                    <option value="3">Наталья Леонидовна</option>
+                    <option value="4">Наталья Ивановна</option>
+                    <option value="5">Елена Анатольевна</option>
+                    <option value="6">Николай Вадимович</option>
+                </select>
+                </div>
+
+                <div class="input-field">
+                  <label>Количество занятий</label>
+                  <input type="text" placeholder="Введите количество занятий..." required>
+                </div>
+
+                <div class="input-field">
+                  <label>Длительность</label>
+                  <input type="text" placeholder="Введите длительность обучения..." required>
+                </div>
+                
+                <div class="input-field">
+                  <label for="oldPrice">Цена без скидки</label>
+                  <input id="oldPrice" type="text" placeholder="Введите цену без скидки..." required>
+                </div>
+
+                <div class="input-field">
+                  <label for="newPrice">Цена со скидкой</label>
+                  <input id="newPrice" type="text" placeholder="Введите цену со скидкой..." required>
+                </div>
+
+                <div class="input-field">
+                  <label for="img">ПРИКРЕПИТЬ ИЗОБРАЖЕНИЯ КУРСА</label>
+                  <input class="input-file" type="file" accept=".jpg, .jpeg, .png" id="img">
+                </div>
+
+              </div>
+            </div>
+            <button id="editCourse" class="save__data" type="submit">
+              <span class="btn__save">Внести изменения в курс</span>
+            </button>
+          </div>
+          <div class="details identify">
+            <span class="admin-courses-del-subtitle">Для УДАЛЕНИЯ курса заполните необходимые поля</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label for="courseName">Название курса</label>
+                <select id="">
+                  <option value="1">Подготовка к ЕГЭ по профильной математике</option>
+                  <option value="2">Подготовка к ЕГЭ по русскому языку</option>
+                  <option value="3">Подготовка к ЕГЭ по обществознанию</option>
+                  <option value="4">Подготовка к ЕГЭ по биологии</option>
+                  <option value="5">Социальная работа с гражданами пожилого возраста и инвалидами</option>
+                  <option value="6">Управление персоналом</option>
+                </select>
+              </div>             
+            </div>
+            <button id="delCourse" class="save__data" type="submit">
+              <span class="btn__save">Удалить курс</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  <!--=============== JS ===============-->
+  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/admin.js"></script>
+  </body>
+</html>

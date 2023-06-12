@@ -94,9 +94,9 @@ async function showNewsDetailed (object) {
     const funcName = 'showNewsDetailed';
     const client = await pool.connect();
     try {
-        const news = await client.query(`select * from news where "newsId" = $1`,[object.newsId])
+        const news = await client.query(`select *, to_char("newsDate",'DD-MM-YYYY') as "newsData2" from news where "newsId" = $1`,[object.newsId])
         if(news.rows.length > 0){
-            data.message = news.rows
+            data.message = news.rows[0]
             data.statusCode = 200
         }
     }
