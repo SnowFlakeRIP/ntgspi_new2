@@ -18,7 +18,10 @@ async function setUserData(object, info) {
                                                 "middleName" = $6,
                                                 "dateBirth" = $7,
                                                 "gender" = $9,
-                                                "city" = $10
+                                                "city" = $10,
+                                                "passportFrom" = $11,
+                                                "passportReg" = $12,
+                                                "snils" = $13
                                             WHERE "userId" = $8`, [
             object.userPhone,
             object.passportSerial,
@@ -29,7 +32,10 @@ async function setUserData(object, info) {
             object.dateBirth,
             info.userId,
             object.gender,
-            object.city
+            object.city,
+            object.passportFrom,
+            object.passportReg,
+            object.snils,
         ] )
         if (result.rowCount > 0) {
 
@@ -74,7 +80,7 @@ async function getUserData(object, info) {
     }
     const client = await pool.connect()
     try {
-        const result = await client.query(`SELECT *,to_char("dateBirth",'DD.MM.YYYY') as "dateBirth2"
+        const result = await client.query(`SELECT *,to_char("dateBirth",'YYYY-MM-DD') as "dateBirth2"
                                            FROM userdata
                                                     INNER JOIN users u on userdata."userId" = u."userId"
                                            WHERE u."userId" = $1`, [info.userId])
@@ -197,8 +203,8 @@ async function getCourseReg (object, user) {
 module.exports = {
     setUserData: setUserData,
     getUserData: getUserData,
-    joinToCourse: joinToCourse,
-    myCourse: myCourse,
-    getCourseReg:   getCourseReg,
+    joinToCourse:joinToCourse,
+    myCourse:    myCourse,
+    getCourseReg:getCourseReg,
 
 }

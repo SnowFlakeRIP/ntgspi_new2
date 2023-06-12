@@ -1,5 +1,20 @@
 const main = document.querySelector( '.main' )
 checkToken()
+const buttons = document.querySelector('.buttons')
+changeButtons()
+function changeButtons(){
+    const token = localStorage.getItem( 'token' )
+    if ( !token ) {
+        buttons.innerHTML += `
+         <a href = "#feedback" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>
+          <a href = "auth.html" class="button button__authorization">ВХОД</a>`
+    }
+    else {
+        buttons.innerHTML += `
+         <a href = "#feedback" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>
+          <a href = "./user.html" class="button button__authorization">ЛИЧНЫЙ КАБИНЕТ</a>`
+    }
+}
 
 async function checkToken () {
     const token = localStorage.getItem( 'token' )
@@ -35,7 +50,7 @@ async function getCourseInfo () {
 
             <div class="details__data">
               <span class="details__subtitle">Преподаватель</span>
-              <h3 class="details__data-title">${course.teachername + '' + course.teachersecondname}</h3>
+              <h3 class="details__data-title">${course.teachername} ${course.teachersecondname}</h3>
             </div>
           </div>
           <div class="details__update">

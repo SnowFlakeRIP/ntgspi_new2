@@ -1,6 +1,6 @@
 const job = require('../../handlers/documents/handler')
 const { checkTokenAndSetRequest } = require( "../../dependes" );
-
+const QRCode = require('qrcode');
 module.exports = function (fastify, opts, next) {
     fastify.route({
         method: "POST",
@@ -43,11 +43,22 @@ module.exports = function (fastify, opts, next) {
                         type: 'number'
                     }
                 },
-                required: ['userId', 'courseId']
             }
         },
         async handler(request, reply) {
-            const data = await job.DOPWithCustomer(request.body)
+            let ch = await checkTokenAndSetRequest( request )
+            console.log( ch )
+            if ( !ch ) {
+                reply.code( 403 )
+                reply.send( {
+                    message:   'Access denied',
+                    statusCode:403
+                } )
+            }
+            const data = await job.DOPWithCustomer( {
+                ...request.body,
+                ...request.info
+            })
             if (data.statusCode !== 200) {
                 reply.status(400)
             }
@@ -123,12 +134,20 @@ module.exports = function (fastify, opts, next) {
                     courseId: {
                         type: 'number'
                     }
-                },
-                required: ['userId', 'courseId']
+                }
             }
         },
         async handler(request, reply) {
-            const data = await job.consentPersonalCustomer(request.body)
+            let ch = await checkTokenAndSetRequest( request )
+            console.log( ch )
+            if ( !ch ) {
+                reply.code( 403 )
+                reply.send( {
+                    message:   'Access denied',
+                    statusCode:403
+                } )
+            }
+            const data = await job.consentPersonalCustomer( { ...request.body, ...request.info })
             if (data.statusCode !== 200) {
                 reply.status(400)
             }
@@ -206,6 +225,40 @@ module.exports = function (fastify, opts, next) {
             reply.send(data.message)
         }
     })
+
+    fastify.route({
+        method: 'POST',
+        url:    '/invoice_payment',
+        schema: {
+            body:     {
+                type:       'object',
+                properties: {
+                    requisit:    { type: 'integer' },
+                    amaunt:      { type: 'string' },
+                    amauntText:  { type: 'string' },
+                    projectId:   { type: 'integer', nullable: true },
+                    projectName: { type: 'string', nullable: true },
+                    pdf:         { type: 'boolean' },
+                    date:        { type: 'string' },
+                    inn:         {type:'string'}
+                },
+            },
+        },
+        async handler (request, reply) {
+            let ch = await checkTokenAndSetRequest( request );
+            if ( ch ) {
+                // ГОСТ https://docs.cntd.ru/document/1200110981 (все по нему)
+                let data = await job.invoicePayment( {
+                    ...request
+                    .body,
+                   ...request
+                    .info
+                });
+                reply.header('Content-Type', 'application/pdf')
+                reply.send(data.message)
+            }
+        },
+    } );
 
     next();
 }

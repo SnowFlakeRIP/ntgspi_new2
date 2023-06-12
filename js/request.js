@@ -57,6 +57,6 @@ async function createRequest () {
     }
 }
 
-request.onclick = function (){
-    createRequest()
+request.onclick = async function (){
+    await createRequest()
 }

@@ -1,3 +1,7 @@
+const button = document.querySelector('#personalPDF')
+const buttons = document.querySelector('.buttons')
+changeButtons()
+
 async function getCourses(){
     try{
         const data = await axios.get(`https://ntgspi.devsnowflake.ru/api/courses/all`)
@@ -11,11 +15,11 @@ async function getCourses(){
       <div class="course__content">
         <div class="course__meta">
           <div class="course__lesson">
-            <i class="uil uil-book-alt"></i>${course.meta.lessonsCount}
+            <i class="uil uil-book-alt"></i>${course.courseTime} ч.
           </div>
 
           <div class="course__rating">
-            <i class="uis uis-star">★</i> ${course.meta.rating} ${course.meta.ratingCount}
+            <i class="uis uis-star"></i> ${course.studyType == 1 ? 'Очная' : 'Заочная'}
           </div>
         </div>
         <h3 class="course__title">${course.coursename}</h3>
@@ -27,8 +31,7 @@ async function getCourses(){
 
       <div class="course__more">
         <div class="course__prices">
-          <span class="course__discount">${course.meta.newPrice} ₽</span>
-          <span class="course__price">${course.meta.oldPrice} ₽</span>
+          <span class="course__discount">${course.meta.newPrice} ₽ </span>
         </div>
 
         <span class="course__button" onclick="openCourse(${course.courseid})">Узнать подробнее</span>
@@ -47,6 +50,19 @@ async function getCourses(){
 
 }
 getCourses()
+function changeButtons(){
+    const token = localStorage.getItem( 'token' )
+    if ( !token ) {
+        buttons.innerHTML += `
+         <a href = "#feedback" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>
+          <a href = "auth.html" class="button button__authorization">ВХОД</a>`
+    }
+    else {
+        buttons.innerHTML += `
+         <a href = "#feedback" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>
+          <a href = "./user.html" class="button button__authorization">ЛИЧНЫЙ КАБИНЕТ</a>`
+    }
+}
 
 function openCourse (id) {
     localStorage.setItem('lastCourse',id)

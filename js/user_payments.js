@@ -21,6 +21,13 @@ async function getUserCourses(){
         const courses = response.data.message
         let n = 1
         for ( const cours of courses ) {
+            let status = null
+            if(cours.isPaid){
+                status= `<td>Курс оплачен</td>`
+            }
+            else{
+                status= `<td><a href="#" onclick="openPayment(${cours.courseId},${cours.courseprice},${cours.id})" class="btnPay">Оплатить</a></td>`
+            }
             table.innerHTML += `
                  <tr>
               <td>${n}</td>
@@ -31,9 +38,9 @@ async function getUserCourses(){
                 <p class="status approved">${cours.isPaid ? 'Успешно' : 'Ожидает оплаты'}</p>
               </td>
               <td>${cours.payDate}</td>
-              <td>{course.isPaid ? 'Курс оплачен' : 'Ожидает оплаты'}</td>
-            </tr>
-            `
+              ${status}
+</tr>`
+
             n++
         }
     }
@@ -45,4 +52,12 @@ async function getUserCourses(){
         }
         console.log(e)
     }
+}
+
+function openPayment (courseId,amount,paymentNumber) {
+    localStorage.setItem('payCourseId',courseId)
+    localStorage.setItem('amount',amount)
+    localStorage.setItem('paymentNumber',paymentNumber)
+
+    window.open('./payment_document.html')
 }

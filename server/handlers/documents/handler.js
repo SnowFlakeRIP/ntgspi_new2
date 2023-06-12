@@ -2,6 +2,7 @@ const pdfMakePrinter = require('pdfmake');
 const {fonts, pool, writeFile} = require('../../dependes')
 const documentsPDF = require('../../documents/create/documentsPDF')
 const constants = require("../../constants");
+const QRCode = require( "qrcode" );
 
 function docFileFromStream(document, path, isUpload) {
     const chunks = [];
@@ -305,6 +306,7 @@ async function consentPersonalCustomer(object) {
         success: false,
         statusCode: 400
     }
+    console.log('object',object)
     let printer = new pdfMakePrinter(fonts);
     const client = await pool.connect()
     try {
@@ -336,7 +338,8 @@ async function consentPersonalCustomer(object) {
                                                   CONCAT_WS(' ', ud."lastName", ud.name, ud."middleName") AS "FIO",
                                                   ud."userPhone",
                                                   u.email                                                 AS "userEmail",
-                                                  to_char(ud."dateBirth", 'dd.mm.YYYY')                   AS "dateBirth"
+                                                  to_char(ud."dateBirth", 'dd.mm.YYYY')                   AS "dateBirth",
+                                                  ud."passportReg"
                                            FROM users u
                                                     INNER JOIN documents d on u."userId" = d."userId"
                                                     INNER JOIN courses c on d."courseId" = c.courseid
@@ -473,7 +476,10 @@ async function KPKAndPP(object) {
                                                   ud."middleName",
                                                   ud."userPhone",
                                                   u.email                                                 AS "userEmail",
-                                                  to_char(ud."dateBirth", 'dd.mm.YYYY')                   AS "dateBirth"
+                                                  to_char(ud."dateBirth", 'dd.mm.YYYY')                   AS "dateBirth",
+                                                  ud."passportFrom",
+                                                  ud.snils,
+                                                  ud."passportReg"
                                            FROM users u
                                                     INNER JOIN documents d on u."userId" = d."userId"
                                                     INNER JOIN courses c on d."courseId" = c.courseid
@@ -503,6 +509,56 @@ async function KPKAndPP(object) {
     return data
 }
 
+async function invoicePayment(object) {
+    console.log(`фукнция`)
+    let data = {
+        message: 'error',
+        success: false,
+        statusCode: 400
+    }
+    let printer = new pdfMakePrinter(fonts);
+    const client = await pool.connect()
+    try {
+        const result = await client.query( `SELECT ud."lastName", ud.name, ud."middleName"
+                                            FROM users u
+                                                     INNER JOIN userdata ud on u."userId" = ud."userId"
+                                            WHERE u."userId" = $1`, [ object.userId ] )
+        if ( result.rows.length > 0 ) {
+
+            let desc = 'Оплата курса';
+            let qrData = `ST00012|Name=Филиал РГППУ в г. Нижнем Тагиле|PersonalAcc=40503810262484900001|BankName=ПАО КБ «УБРиР»|BIC=046577795|CorrespAcc=30101810900000000795|PayeeINN=6663019889|KPP=662343001|Purpose=${ desc }|Sum=${ object.amount }|LastName=${ result.rows[0].lastName }|FirstName=${ result.rows[0].name }|MiddleName=${ result.rows[0].middleName }`;
+            let qrBase64 = await QRCode.toDataURL( qrData );
+            if ( !data.kpp ) {
+                data.kpp = '';
+            }
+            if ( !data.address ) {
+                data.address = '';
+            }
+            let pdfDate = {
+                ...result.rows[0],
+                ...object,
+                qr:qrBase64
+            }
+            let printer = new pdfMakePrinter( fonts );
+            let doc = printer.createPdfKitDocument(await documentsPDF.paymentOrder(pdfDate))
+            let docFile = await docFileFromStream(doc, '', true)
+            data = {
+                message: docFile,
+                statusCode: 200,
+                success: true
+            }
+        } else {
+            console.log('Не удалось найти информацию по курсам')
+        }
+    } catch (err) {
+        console.log(err)
+    } finally {
+        client.release()
+    }
+    return data
+}
+
+
 module.exports = {
     docFileFromStream: docFileFromStream,
     DOPWithLess18: DOPWithLess18,
@@ -511,5 +567,7 @@ module.exports = {
     profReset: profReset,
     consentPersonalCustomer: consentPersonalCustomer,
     consentPersonalLess18: consentPersonalLess18,
-    KPKAndPP: KPKAndPP
+    KPKAndPP: KPKAndPP,
+    invoicePayment:invoicePayment,
+
 }

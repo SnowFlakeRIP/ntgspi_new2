@@ -83,8 +83,23 @@ async function downloadDoc(courseId){
                     'access':token
                 }
             } )
-        await downloadFiles(response.data,'fkt','application/pdf')
-        console.log(response)
+        await downloadFiles(response.data,'Заявление','application/pdf')
+        const response2 = await axios.post( 'https://ntgspi.devsnowflake.ru/api/documents/consentPersonalCustomer', {courseId},
+            {
+                responseType: 'blob', // надо проверить
+                headers:{
+                    'access':token
+                }
+            } )
+        await downloadFiles(response2.data,'Согласие на обработку персональных данных','application/pdf')
+        const response3 = await axios.post( 'https://ntgspi.devsnowflake.ru/api/documents/customer', {courseId},
+            {
+                responseType: 'blob', // надо проверить
+                headers:{
+                    'access':token
+                }
+            } )
+        await downloadFiles(response3.data,'Договор','application/pdf')
     }
     catch ( e ) {
         console.log(e)

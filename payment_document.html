@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+
+
+<table class="ui table">
+
+    <tr>
+        <td>Ф.И.О</td>
+        <td><input type="text" id = 'name' name="realname" value=""/></td>
+    </tr>
+    <tr>
+        <td>ИНН</td>
+        <td><input type="text" id="inn" name="inn" value=""/></td>
+    </tr>
+    <tr>
+        <td>Адрес</td>
+        <td><input type="text" id="address" name="adres" value=""/></td>
+    </tr>
+    <tr>
+        <td>Телефон</td>
+        <td><input type="text" id="number" name="phone" value=""/></td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td><input type="text" id="email" name="email" value=""/></td>
+    </tr>
+    <tr>
+        <td>Номер заказа</td>
+        <td><input type="text" id="orderId" name="order_id" value=""/></td>
+    </tr>
+    <tr>
+        <td>Назначение платежа</td>
+        <td><input type="text" id="orderTitle" name="order_title" value="Оплата курса"/></td>
+    </tr>
+    <tr>
+        <td>Сумма</td>
+        <td><input type="text" id="amount" name="order_sum" value=""/></td>
+    </tr>
+
+
+</table>
+
+<button class="ui primary button" id="download">Скачать</button>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./js/payment.js"></script>
+</body>
+</html>
+

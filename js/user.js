@@ -20,6 +20,9 @@ async function setUserData(event){
     const userCity = document.querySelector('#city').value
     const passSerial = document.querySelector('#serial').value
     const passNumber = document.querySelector('#number').value
+    const passReg = document.querySelector('#reg').value
+    const passFrom = document.querySelector('#from').value
+    const snils = document.querySelector('#snils').value
 
     const token = localStorage.getItem('token')
     try{
@@ -33,7 +36,10 @@ async function setUserData(event){
             dateBirth:userDate,
             gender:userGender,
             city:userCity,
-            email:userEmail
+            email:userEmail,
+            passportFrom:passFrom,
+            passportReg:passReg,
+            snils:snils,
         },{
             headers:{
                 'access':token
@@ -63,6 +69,9 @@ async function getSettings () {
         document.querySelector( '#city' ).value = response.data.message.city
         document.querySelector( '#serial' ).value = response.data.message.passportSerial
         document.querySelector( '#number' ).value = response.data.message.passportNumber
+        document.querySelector( '#from' ).value = response.data.message.passportFrom
+        document.querySelector( '#snils' ).value = response.data.message.snils
+        document.querySelector( '#reg' ).value = response.data.message.passportReg
     }
     catch ( e ) {
         if(e.response.status === 403){
