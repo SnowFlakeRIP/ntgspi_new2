@@ -17,7 +17,7 @@ module.exports = function (fastify, opts, next) {
 
     fastify.route({
         method: "GET",
-        url: '/courses/:page',
+        url: '/courses',
         schema: {
             params: {
                 type: 'object',
@@ -143,6 +143,50 @@ module.exports = function (fastify, opts, next) {
             reply.send(data);
         },
     });
+
+    fastify.route({
+        method: 'POST',
+        url: '/course/isPaid',
+        schema: {
+            body: {
+                type: 'object',
+                properties: {
+                    id:{type:'number'}
+                }
+            }
+        },
+        async handler(request, reply) {
+            const data = await job.setIsPaid(request.body)
+            if (data.statusCode !== 200) {
+                reply.code(400)
+            }
+            reply.send(data)
+        }
+    })
+
+    fastify.route({
+        method: 'GET',
+        url: '/course/req',
+        async handler(request, reply) {
+            const data = await job.getRequests(request.body)
+            if (data.statusCode !== 200) {
+                reply.code(400)
+            }
+            reply.send(data)
+        }
+    })
+
+    fastify.route({
+        method: 'POST',
+        url: '/req/confirm',
+        async handler(request, reply) {
+            const data = await job.confirmCourseRequest(request.body)
+            if (data.statusCode !== 200) {
+                reply.code(400)
+            }
+            reply.send(data)
+        }
+    })
 
     next();
 }

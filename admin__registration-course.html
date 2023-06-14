@@ -29,12 +29,6 @@
         <div class="menu">
           <ul class="menu__list">
             <li class="menu__item">
-              <a class="menu__item-link" href="admin__panel.html">
-                <i class='bx bxs-user icon'></i>
-                <span class="text nav__text">Профиль</span>
-              </a>
-            </li>
-            <li class="menu__item">
               <a class="menu__item-link" href="admin__courses.html">
                 <i class='bx bxs-user-detail icon'></i>
                 <span class="text nav__text">Курсы</span>
@@ -71,7 +65,7 @@
         <div class="table__header-title">Заявки на курсы</div>
       </section>
       <section class="table__body">
-        <table>
+        <table id="table">
           <thead>
             <tr>
               <th>id</th>
@@ -82,61 +76,61 @@
               <th>Действие</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><img src="img/user1.jpg" alt = "">Данил Махмудов</td>
-              <td>Подготовка к ЕГЭ по профильной математике</td>
-              <td><strong>3200 ₽</strong></td>
-              <td>
-                <p class="status in-processing">В обработке</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Просмотр заявки</a>
-                <a href="#" class="crud__btn">Принять заявку</a>
-                <a href="#" class="crud__btn">Отклонить заявку</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><img src="img/user2.jpg" alt = "">Никита Арзамазов</td>
-              <td>Социальная работа с гражданами пожилого возраста и инвалидами</td>
-              <td><strong>500 ₽</strong></td>
-              <td>
-                <p class="status in-processing">В обработке</p>
-              </td>
-              <td>
-                <a href="#" class="crud__btn">Просмотр заявки</a>
-                <a href="#" class="crud__btn">Принять заявку</a>
-                <a href="#" class="crud__btn">Отклонить заявку</a>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><img src="img/user3.jpg" alt = "">Диана Береснева</td>
-              <td>Подготовка к ЕГЭ по русскому языку</td>
-              <td><strong>4200 ₽</strong></td>
-              <td>
-                <p class="status approved">Заявка принята</p>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><img src="img/user4.jpg" alt = "">Михаил Вахрушев</td>
-              <td>Подготовка к ЕГЭ по обществознанию</td>
-              <td><strong>2200 ₽</strong></td>
-              <td>
-                <p class="status cancel">Заявка отклонена</p>
-              </td>
-            </tr>
-          </tbody>
+<!--          <tbody>-->
+<!--            <tr>-->
+<!--              <td>1</td>-->
+<!--              <td><img src="img/user1.jpg" alt = "">Данил Махмудов</td>-->
+<!--              <td>Подготовка к ЕГЭ по профильной математике</td>-->
+<!--              <td><strong>3200 ₽</strong></td>-->
+<!--              <td>-->
+<!--                <p class="status in-processing">В обработке</p>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <a href="#" class="crud__btn">Просмотр заявки</a>-->
+<!--                <a href="#" class="crud__btn">Принять заявку</a>-->
+<!--                <a href="#" class="crud__btn">Отклонить заявку</a>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td>2</td>-->
+<!--              <td><img src="img/user2.jpg" alt = "">Никита Арзамазов</td>-->
+<!--              <td>Социальная работа с гражданами пожилого возраста и инвалидами</td>-->
+<!--              <td><strong>500 ₽</strong></td>-->
+<!--              <td>-->
+<!--                <p class="status in-processing">В обработке</p>-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <a href="#" class="crud__btn">Просмотр заявки</a>-->
+<!--                <a href="#" class="crud__btn">Принять заявку</a>-->
+<!--                <a href="#" class="crud__btn">Отклонить заявку</a>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td>3</td>-->
+<!--              <td><img src="img/user3.jpg" alt = "">Диана Береснева</td>-->
+<!--              <td>Подготовка к ЕГЭ по русскому языку</td>-->
+<!--              <td><strong>4200 ₽</strong></td>-->
+<!--              <td>-->
+<!--                <p class="status approved">Заявка принята</p>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td>4</td>-->
+<!--              <td><img src="img/user4.jpg" alt = "">Михаил Вахрушев</td>-->
+<!--              <td>Подготовка к ЕГЭ по обществознанию</td>-->
+<!--              <td><strong>2200 ₽</strong></td>-->
+<!--              <td>-->
+<!--                <p class="status cancel">Заявка отклонена</p>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--          </tbody>-->
         </table>
       </section>
     </main>
   </section>
   <!--=============== JS ===============-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/admin_reg.js"></script>
   <script src="js/main.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="./js/admin.js"></script>
   </body>
 </html>

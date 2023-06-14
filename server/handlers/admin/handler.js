@@ -10,10 +10,10 @@ async function getCourse(object) {
     }
     const client = await pool.connect()
     try {
-        const courses = await client.query(`SELECT *
-                                            FROM courses c
-                                                     INNER JOIN coursetypes ct ON ct.coursetypeid = c.coursetypes_coursetypeid
-                                                     INNER JOIN teachers t on c.teacherid = t.teacherid`)
+        const courses = await client.query( `SELECT *
+                                             FROM courselisteners cl
+                                                      INNER JOIN courses c ON c.courseid = cl."courseId"
+                                                      inner join userdata u on cl."userId" = u."userId"` )
         data.message = courses.rows
         data.statusCode = 200
     } catch (e) {
@@ -127,8 +127,52 @@ async function confirmCourseRequest(object) {
     return data
 }
 
+async function setIsPaid(object) {
+    let data = {
+        message: 'Успешно',
+        success: true,
+        statusCode: 200
+    }
+    const client = await pool.connect()
+    try {
+        await client.query(`update courselisteners set "isPaid" = true where id = $1`,[object.id])
+    } catch (err) {
+        console.log(err)
+    } finally {
+        client.release()
+    }
+    return data
+}
+
+async function getRequests(object) {
+    let data = {
+        message: 'Успешно',
+        success: true,
+        statusCode: 200
+    }
+    const client = await pool.connect()
+    try {
+        const requests = await client.query(`select *
+                                             from courserequest cr
+                                                      inner join courses c on cr."courseId" = c.courseid
+                                                      inner join userdata u on cr."userId" = u."userId"`)
+
+        data.message = requests.rows
+        data.statusCode = 200
+    } catch (err) {
+        console.log(err)
+    } finally {
+        client.release()
+    }
+    return data
+}
+
 module.exports = {
     getCourse: getCourse,
     addCourse: addCourse,
-    loadImage: loadImage
+    loadImage: loadImage,
+    setIsPaid:setIsPaid,
+    getRequests:    getRequests,
+    confirmCourseRequest:confirmCourseRequest,
+
 }
