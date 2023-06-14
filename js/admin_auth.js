@@ -10,7 +10,7 @@ async function sign(){
 
         localStorage.setItem('token-admin',response.data.token)
         window.close()
-        window.open('./admin.html')
+        window.open('./admin__panel.html')
     }
     catch ( e ) {
         console.log(e)

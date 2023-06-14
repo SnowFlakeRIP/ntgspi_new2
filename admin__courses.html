@@ -29,12 +29,6 @@
         <div class="menu">
           <ul class="menu__list">
             <li class="menu__item">
-              <a class="menu__item-link" href="admin__panel.html">
-                <i class='bx bxs-user icon'></i>
-                <span class="text nav__text">Профиль</span>
-              </a>
-            </li>
-            <li class="menu__item">
               <a class="menu__item-link" href="admin__courses.html">
                 <i class='bx bxs-user-detail icon'></i>
                 <span class="text nav__text">Курсы</span>
@@ -80,11 +74,10 @@
                 </div>
 
                 <div class="input-field">
-                  <label for="courseTraining">Тип обучения</label>
-                  <select id="courseTraining">
+                  <label for="studyType">Тип обучения</label>
+                  <select id="studyType">
                     <option value="1">Очное</options>
-                    <option value="2">Дистанционное</options>
-                    <option value="3">Заочное</options>
+                    <option value="2">Заочное</options>
                   </select>
                 </div>
 
@@ -111,22 +104,27 @@
 
                 <div class="input-field">
                   <label>Количество занятий</label>
-                  <input type="text" placeholder="Введите количество занятий..." required>
+                  <input id="coursecount" type="text" placeholder="Введите количество занятий..." required>
                 </div>
 
                 <div class="input-field">
                   <label>Длительность</label>
-                  <input type="text" placeholder="Введите длительность обучения..." required>
-                </div>
-                
-                <div class="input-field">
-                  <label for="oldPrice">Цена без скидки</label>
-                  <input id="oldPrice" type="text" placeholder="Введите цену без скидки..." required>
+                  <input id="courseTime" type="text" placeholder="Введите длительность обучения..." required>
                 </div>
 
                 <div class="input-field">
-                  <label for="newPrice">Цена со скидкой</label>
-                  <input id="newPrice" type="text" placeholder="Введите цену со скидкой..." required>
+                  <label>Описание курса</label>
+                  <textarea id="description" type="text" placeholder="Введите описание" required></textarea>
+                </div>
+
+                <div class="input-field">
+                  <label>Кому подойдет курс</label>
+                  <textarea id="coursefor" type="text" placeholder="Введите кому подойдет курс" required></textarea>
+                </div>
+
+                <div class="input-field">
+                  <label for="oldPrice">Цена</label>
+                  <input id="oldPrice" type="text" placeholder="Введите цену" required>
                 </div>
 
                 <div class="input-field">
@@ -242,8 +240,8 @@
       </div>
     </section>
   <!--=============== JS ===============-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./js/admin.js"></script>
   </body>
 </html>

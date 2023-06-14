@@ -31,12 +31,12 @@ async function addCourse(object) {
     }
     const client = await pool.connect()
     try {
-        const createCourse = await client.query(`INSERT INTO courses (coursename, coursehours, coursetarget,
+        const createCourse = await client.query(`INSERT INTO courses (coursename, coursecount, coursetarget,
                                                                       courseprice, courseprogrammtarget,
                                                                       coursetypes_coursetypeid, teacherid,
-                                                                      meta, img)
+                                                                      meta, img,"studyType",coursehours,"courseTime",description,coursefor)
                                                  VALUES ($1, $2, $3, $4, $5, $6, $7, $8,
-                                                         $9)`, [object.coursename, 1, object.coursetarget, 0, 0, object.coursetypes_coursetypeid, object.teachers_teacherid, object.meta, object.img])
+                                                         $9,$10,20,$11,$12,$13)`, [object.coursename, object.coursecount, object.coursetarget, 0, 0, object.coursetypes_coursetypeid, object.teachers_teacherid, object.meta, object.img,object.studyType,object.courseTime,object.description,object.coursefor])
         if (createCourse.rowCount > 0) {
             data = {
                 success: true,
