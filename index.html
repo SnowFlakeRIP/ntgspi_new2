@@ -21,10 +21,15 @@
   </head>
   <body>
     <!--=============== HEADER ===============-->
-    <header class="header" id = "header">
-      <nav class="nav container">
-        <a href="index.html" class="nav__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
-        
+    <header class="header container" id = "header">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo">
+          <picture>
+            <source srcset="/img/logo.webp">
+            <img src = "img/logo.webp" width="296" height="42" alt = "logo">
+          </picture>
+        </a>
+
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
@@ -47,34 +52,48 @@
       </nav>
     </header>
   <!--=============== SLIDER ===============-->
-  <section class="slider swiper mySwiper">
-    <div class="wrapper swiper-wrapper">
-      <div class="slide swiper-slide">
-        <img src="img/slide1.jpg" alt="" class="image">
-        <div class="image__data">
-          <span class="slide__title">Курсы подготовки ЕГЭ (10 - 11 классы)</span><br>
-          <span class="slide__content">Объём курса: 100 часов</span><br>
+  <div class="swiper-actual">
+    <section class="slider swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+        <div class="slide swiper-slide">
+          <picture>
+            <source srcset="/img/slide1.jpg">
+            <img src="img/slide1.jpg" alt="slide1" class="image">
+          </picture>
+          <div class="image__data">
+            <span class="slide__title">Логопедия</span><br>
+            <span class="slide__content">Объём курса: 1100 часов</span><br>
+              <a onclick="setCourse(1)"  class="button__more"><span>Подробнее</span></a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <picture>
+            <source srcset="/img/slide2.jpg">
+            <img src="img/slide2.jpg" alt="slide2" class="image">
+          </picture>
+          <div class="image__data">
+            <span class="slide__title">Управление персоналом</span><br>
+            <span class="slide__content">Объём курса: 300 часов</span><br>
+              <a onclick="setCourse(9)"  class="button__more"><span>Подробнее</span></a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <picture>
+            <source srcset="/img/slide3.jpg">
+            <img src="img/slide3.jpg" alt="slide3" class="image">
+          </picture>
+          <div class="image__data">
+            <span class="slide__title">Нормативное обеспечение образовательной деятельности (модуль)</span><br>
+            <span class="slide__content">Объём курса: 24 часов</span><br>
+              <a onclick="setCourse(12)"  class="button__more"><span>Подробнее</span></a>
+          </div>
         </div>
       </div>
-      <div class="slide swiper-slide">
-        <img src="img/slide2.jpg" alt="" class="image">
-        <div class="image__data">
-          <span class="slide__title">Управление персоналом</span><br>
-          <span class="slide__content">Объём курса: 300 часов</span><br>
-        </div>
-      </div>
-      <div class="slide swiper-slide">
-        <img src="img/slide3.jpg" alt="" class="image">
-        <div class="image__data">
-          <span class="slide__title">Социальная работа с гражданами пожилого возраста и инвалидами</span><br>
-          <span class="slide__content">Объём курса: 50 часов</span><br>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-button-next nav__btn"></div>
-    <div class="swiper-button-prev nav__btn"></div>
-    <div class="swiper-pagination"></div>
-  </section>
+      <div class="swiper-button-next nav__btn"></div>
+      <div class="swiper-button-prev nav__btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+  </div>
   <!--=============== NEWS ===============-->
   <section id = "news" class="news container">
     <div class="news__heading">
@@ -98,8 +117,10 @@
       <input type = "text" class="feedback_data" required><br>
       <label>Телефон</label><br>
       <input type = "text" class="feedback_data" required><br>
-      <input class = "button_feedback" type = "button" value="ОТПРАВИТЬ"><br>
-      <span>Отправляя эту форму, выдаете <a class="offer" id="personalPDF">согласие на обработку<br>персональных данных</a></span>
+      <div class="button-feedback-container">
+        <input class = "button_feedback" type = "button" value="ОТПРАВИТЬ"><br>
+      </div>
+      <span class = "description__feedback">Отправляя эту форму, вы даете <a class="offer" id="personalPDF">согласие на обработку персональных данных</a></span>
     </form>
   </section>
   <!--=============== COOKIES ===============-->
@@ -124,7 +145,12 @@
   <footer id = "contacts">
     <div class = "footer container">
       <a href="index.html" class="footer__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
-      <a href = "#" class="footer__img"><img src = "img/map.png" width="267" height="231" alt = "map"></a>
+      <a href = "#" class="footer__img">
+        <picture>
+          <source srcset="/img/map.png">
+          <img src = "img/map.png" width="267" height="231" alt = "map">
+        </picture>
+      </a>
       <div class="footer__contacts">
         <div class="footer__item">
           <h3 class="footer__title">Контакты</h3>
@@ -139,7 +165,7 @@
           <p class="footer__content">+7 (3435) 25-57-44<br>+79068049966</p>
         </div>
       </div>
-      <div class="footer__contacts">
+      <div class="footer__contacts footer__email">
         <div class="footer__item">
           <h3 class="footer__title">Email</h3>
           <p class="footer__content">ntspi_cdpo@mail.ru</p>
@@ -165,6 +191,12 @@
         prevEl: ".swiper-button-prev",
       },
     });
+    
+    function setCourse(id) {
+        localStorage.setItem('lastCourse',id)
+        window.open('./courses__details.html')
+    }
+    
   </script>
   </body>
 </html>

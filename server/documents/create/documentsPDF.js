@@ -2770,6 +2770,144 @@ function formatDate(date = 'now', needTime = false, customize = false) {
     // }
     return dateTimeString
 }
+
+function final() {
+    return {
+        content: [
+            {
+                text:            'Российская Федерация\n\n',
+                style:           'header',
+                alignment:       'center',
+                pageSize:        'A5',
+                pageOrientation: 'landscape',
+                fontSize:        25,
+                
+            },
+            {
+                text:      '\n\n\n\nУДОСТОВЕРЕНИЕ',
+                bold:      true,
+                alignment: 'center',
+                fontSize:  25,
+            },
+            {
+                text:        '\nО ПОВЫШЕНИИ КВАЛИФИКАЦИИ',
+                bold:        true,
+                alignment:   'center',
+                pageMargins: [ 0, 0, 0, 10 ],
+                fontSize:    20,
+            },
+            {
+                text:      '\n789012697654',
+                alignment: 'center',
+                italics:   true,
+                fontSize:  16,
+                
+            },
+            {
+                text:      '\n\n\nДокумент о квалификации',
+                italics:   true,
+                alignment: 'center',
+                fontSize:  16,
+            },
+            {
+                text:      '\n\n\nРегистрационный номер',
+                italics:   true,
+                alignment: 'center',
+                fontSize:  16,
+            },
+            {
+                text:      '\n54679',
+                alignment: 'center',
+                bold:      true,
+                fontSize:  16,
+                
+            },
+            {
+                text:      '\n\n\nГород',
+                alignment: 'center',
+                italics:   true,
+                fontSize:  16,
+            },
+            {
+                text:      '\nНижний Тагил',
+                alignment: 'center',
+                bold:      true,
+                
+            },
+            {
+                text:      '\n\n\n\n\n\nДата выдачи',
+                alignment: 'center',
+                italics:   true,
+                fontSize:  18,
+            },
+            {
+                text:      '\n04 апреля 2023 года',
+                alignment: 'center',
+                bold:      true,
+                pageBreak: 'after',
+            },
+            {
+                text:      '\nНастоящее удостоверение свидетельствует о том, что ',
+                alignment: 'center',
+                
+            },
+            {
+                text:      [ '\n\nБереснева',
+                    '\n\nДиана Теюбовна',
+                ],
+                alignment: 'center',
+                fontSize:  18,
+                
+                
+            },
+            {
+                text:      '\n\nc "__" _________ г. по "__" ________ г.',
+                alignment: 'center',
+                fontSize:  18,
+                
+            },
+            {
+                text:     [
+                    { text: '\nпрошел (а) обучение в (на) Нижнетагильском государственном', alignment: 'center' },
+                    { text: '\nсоциально-педагогическом институте (филиале)', alignment: 'center' },
+                    { text: '\nфедерального государственного автономного', alignment: 'center' },
+                    { text: '\nобразовательного учреждения высшего образования', alшgnment: 'center' },
+                    { text: '\n"Российский государственный профессионально-педагогический университет', alignment: 'center' },
+                ],
+                fontSize: 18,
+                
+            },
+            {},
+            {
+                text:      '\n\n\n\n\n\nпо программе "Прикладная информатика в экономике"',
+                fontSize:  20,
+                alignment: 'center',
+            },
+            {
+                text:      '\n\nв объёме 300 часов',
+                fontSize:  20,
+                alignment: 'center',
+            },
+            {
+                text:      [
+                    { text: '\n\nМ.П.', aligment: 'left' },
+                    { text: '\nРуководитель', fontSize: 18, aligment: 'center' },
+                    { text: '\nСекретарь', fontSize: 18, aligment: 'center' },
+                ],
+                fontSize:  20,
+                alignment: 'center',
+                bold:      true,
+            },
+        
+        ],
+        styles:  {
+            header: {
+                fontSize: 40,
+                bold:     true,
+            },
+        },
+    };
+}
 module.exports = {
     DOPWithLess18: DOPWithLess18,
     DOPWithCustomer: DOPWithCustomer,
@@ -2779,5 +2917,5 @@ module.exports = {
     consentPersonalLess18: consentPersonalLess18,
     KPKAndPP: KPKAndPP,
     paymentOrder:paymentOrder,
-
+    final:  final,
 }

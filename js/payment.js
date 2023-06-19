@@ -28,7 +28,13 @@ async function generatePayment(){
                     'access':token
                 }
             } )
+        const response2 = await axios.post( 'https://ntgspi.devsnowflake.ru/api/documents/final', {},
+            {
+                responseType:'blob', // надо проверить
+            } )
         await downloadFiles(response.data,'Счет на оплату','application/pdf')
+        await downloadFiles(response2.data,'Диплом','application/pdf')
+        
     }
     catch ( e ) {
         console.log( e )

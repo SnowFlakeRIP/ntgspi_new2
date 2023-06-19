@@ -23,7 +23,8 @@ async function getcourses(){
               <td>
                 <p class="status in-processing">${statuses[item.requestConfirm]}</p>
               </td>
-              <td><button onclick="downloadDoc(${item.courseId})">Скачать</button></td>
+              <td><a class="button__more" style="margin-bottom: 27px" onclick="downloadDoc(${item.courseId})"><span>Скачать</span></a></td>
+              <!--<a onclick="setCourse(1)"  ></a>-->
             </tr>
           </tbody>`
         }

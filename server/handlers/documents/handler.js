@@ -558,6 +558,33 @@ async function invoicePayment(object) {
     return data
 }
 
+async function final(object) {
+    console.log(`фукнция`);
+    let data = {
+        message:    'error',
+        success:    false,
+        statusCode: 400,
+    };
+    let printer = new pdfMakePrinter(fonts);
+    const client = await pool.connect();
+    try {
+        
+        let printer = new pdfMakePrinter(fonts);
+        let doc = printer.createPdfKitDocument(await documentsPDF.final());
+        let docFile = await docFileFromStream(doc, '', true);
+        
+        return {
+            message:docFile
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
+    finally {
+        client.release();
+    }
+    return data;
+}
 
 module.exports = {
     docFileFromStream: docFileFromStream,
@@ -569,5 +596,6 @@ module.exports = {
     consentPersonalLess18: consentPersonalLess18,
     KPKAndPP: KPKAndPP,
     invoicePayment:invoicePayment,
-
+    final:  final,
+    
 }

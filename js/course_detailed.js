@@ -1,5 +1,5 @@
 const main = document.querySelector( '.main' )
-checkToken()
+
 const buttons = document.querySelector('.buttons')
 changeButtons()
 function changeButtons(){
@@ -16,27 +16,14 @@ function changeButtons(){
     }
 }
 
-async function checkToken () {
-    const token = localStorage.getItem( 'token' )
-    if ( !token ) {
-        window.close()
-        window.open( './auth.html' )
-    }
-}
-
 getCourseInfo()
 
 async function getCourseInfo () {
     try {
         const courseId = localStorage.getItem( 'lastCourse' )
-        const token = localStorage.getItem( 'token' )
         const response = await axios.post( 'https://ntgspi.devsnowflake.ru/api/courses/detailed', {
             courseid:courseId
-        }, {
-            headers:{
-                'access':token
-            }
-        } )
+        })
         const course = response.data.message
         main.innerHTML += `
               <section class="course__details section">
@@ -104,14 +91,8 @@ async function getCourseInfo () {
     </div>
   </section>
         `
-        console.log( response )
     }
     catch ( e ) {
-        if(e.response.status === 403){
-            localStorage.removeItem('token')
-            window.close()
-            window.open('./auth.html')
-        }
         console.log( e )
     }
 }

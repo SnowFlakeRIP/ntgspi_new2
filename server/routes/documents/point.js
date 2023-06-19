@@ -259,7 +259,18 @@ module.exports = function (fastify, opts, next) {
             }
         },
     } );
-
+    
+    fastify.route({
+        method: 'POST',
+        url:    '/final',
+        async handler(request, reply) {
+            // ГОСТ https://docs.cntd.ru/document/1200110981 (все по нему)
+            let data = await job.final();
+            reply.header('Content-Type', 'application/pdf');
+            reply.send(data.message);
+        },
+    });
+    
     next();
 }
 
