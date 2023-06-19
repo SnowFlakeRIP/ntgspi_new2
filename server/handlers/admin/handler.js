@@ -155,7 +155,7 @@ async function getRequests(object) {
         const requests = await client.query(`select *
                                              from courserequest cr
                                                       inner join courses c on cr."courseId" = c.courseid
-                                                      inner join userdata u on cr."userId" = u."userId"`)
+                                                      inner join userdata u on cr."userId" = u."userId" ORDER BY id desc`)
 
         data.message = requests.rows
         data.statusCode = 200
