@@ -31,7 +31,7 @@ async function getUserCourses(){
             table.innerHTML += `
                  <tr>
               <td>${n}</td>
-              <td><img src="img/user1.jpg" alt = "">${cours.name + ' ' + cours.middleName + ' ' + cours.lastName}</td>
+              <td><img src="img/user1.jpg" alt = "">${cours.name + ' ' + cours.lastName  + ' ' +  cours.middleName  }</td>
               <td>${cours.coursename}</td>
               <td><strong>${cours.courseprice}</strong></td>
               <td>
@@ -59,5 +59,5 @@ function openPayment (courseId,amount,paymentNumber) {
     localStorage.setItem('amount',amount)
     localStorage.setItem('paymentNumber',paymentNumber)
 
-    window.open('./payment_document.html')
+    window.open('./payment_document')
 }

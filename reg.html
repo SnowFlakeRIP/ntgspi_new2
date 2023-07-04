@@ -48,10 +48,15 @@
     </form>
   </section>
   <!--=============== FOOTER ===============-->
-  <footer id="contacts">
+  <footer id = "contacts">
     <div class = "footer container">
       <a href="index.html" class="footer__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
-      <a href = "#" class="footer__img"><img src = "img/map.png" width="267" height="231" alt = "map"></a>
+      <a href = "#" class="footer__img">
+        <picture>
+          <source srcset="/img/map.webp">
+          <img src = "img/map.png" width="267" height="231" alt = "map">
+        </picture>
+      </a>
       <div class="footer__contacts">
         <div class="footer__item">
           <h3 class="footer__title">Контакты</h3>
@@ -66,7 +71,7 @@
           <p class="footer__content">+7 (3435) 25-57-44<br>+79068049966</p>
         </div>
       </div>
-      <div class="footer__contacts">
+      <div class="footer__contacts footer__email">
         <div class="footer__item">
           <h3 class="footer__title">Email</h3>
           <p class="footer__content">ntspi_cdpo@mail.ru</p>

@@ -2905,6 +2905,7 @@ function final() {
                 fontSize: 40,
                 bold:     true,
             },
+            pageOrientation: 'landscape',
         },
     };
 }
@@ -2918,4 +2919,5 @@ module.exports = {
     KPKAndPP: KPKAndPP,
     paymentOrder:paymentOrder,
     final:  final,
+    
 }

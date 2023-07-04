@@ -30,8 +30,9 @@ async function news(){
         </div>
         <div class="news__text">
           <span>${news.newsDate2}</span>
+<!--          <p class="news__title"> ${news.newsTitle}</p>-->
           <a href="news__details.html" onclick="setNew(${news.newsId})" class="news__title">${news.newsTitle}</p>
-<!--          <a href="news__details.html">Узнать подробнее</a>-->
+
         </div>
       </div>`
         }

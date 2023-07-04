@@ -38,7 +38,8 @@ async function getAllCourses (object, info) {
         const course = await client.query(`SELECT *
                                            FROM courses c
                                                     INNER JOIN teachers t ON c.teacherid = t.teacherid
-                                                    INNER JOIN coursetypes c2 on c2.coursetypeid = c.coursetypes_coursetypeid`);
+                                                    INNER JOIN coursetypes c2 on c2.coursetypeid = c.coursetypes_coursetypeid
+                                                    `);
         
         if(course.rows.length > 0){
             data.message = course.rows

@@ -24,9 +24,8 @@ fastify.register(require('@fastify/cors'), (instance) => {
         };
 
         // do not include CORS headers for requests from localhost
-        if (/^localhost$/m.test(req.headers.origin)) {
-            corsOptions.origin = false
-        }
+        corsOptions.origin = false
+
 
         // callback expects two parameters: error and options
         callback(null, corsOptions)
@@ -37,7 +36,8 @@ fastify.register(require('fastify-cookie'), {
     parseOptions: {},
 });
 fastify.register(require('fastify-autoload'), {
-    dir: path.join(__dirname, './routes')
+    dir: path.join(__dirname, './routes'),
+    options: { prefix: '/api' }
 })
 
 // Run the server!

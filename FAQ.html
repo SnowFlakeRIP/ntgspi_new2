@@ -12,10 +12,15 @@
   </head>
   <body>
     <!--=============== HEADER ===============-->
-    <header class="header" id = "header">
-      <nav class="nav container">
-        <a href="index.html" class="nav__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
-        
+    <header class="header container" id = "header">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo">
+          <picture>
+            <source srcset="/img/logo.webp">
+            <img src = "img/logo.png" width="296" height="42" alt = "logo">
+          </picture>
+        </a>
+
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
@@ -32,13 +37,12 @@
           </ul>
         </div>
         <div class="buttons">
-<!--          <a href = "#feedback" class="button button__consultation">КОНСУЛЬТАЦИЯ</a>-->
-<!--          <a href = "auth.html" class="button button__authorization">ВХОД</a>-->
+
         </div>
-      </nav>	
+      </nav>
     </header>
     <!--=============== FAQ ===============-->
-    <section>
+    <section class="faq__main">
       <h1 class="faq__title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h1>
       <div class="faq container">
         <div class="faq__question">
@@ -148,11 +152,16 @@
         </div>
       </div>
     </section>
-    <!--=============== FOOTER ===============-->
+  <!--=============== FOOTER ===============-->
   <footer id = "contacts">
     <div class = "footer container">
       <a href="index.html" class="footer__logo"><img src = "img/logo.png" width="296" height="38" alt = "logo"></a>
-      <a href = "#" class="footer__img"><img src = "img/map.png" width="267" height="231" alt = "map"></a>
+      <a href = "#" class="footer__img">
+        <picture>
+          <source srcset="/img/map.webp">
+          <img src = "img/map.png" width="267" height="231" alt = "map">
+        </picture>
+      </a>
       <div class="footer__contacts">
         <div class="footer__item">
           <h3 class="footer__title">Контакты</h3>
@@ -167,7 +176,7 @@
           <p class="footer__content">+7 (3435) 25-57-44<br>+79068049966</p>
         </div>
       </div>
-      <div class="footer__contacts">
+      <div class="footer__contacts footer__email">
         <div class="footer__item">
           <h3 class="footer__title">Email</h3>
           <p class="footer__content">ntspi_cdpo@mail.ru</p>
@@ -176,7 +185,8 @@
     </div>
   </footer>
   <!--=============== JS ===============-->
-  <script src="js/main.js"></script>
-    <script src="js/faq.js"></script>
+  <script src="js/main.js"></script>   
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="js/index.js"></script>
   </body>
 </html>
